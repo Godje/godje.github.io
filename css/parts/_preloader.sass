@@ -1,0 +1,59 @@
+#pr
+  opacity: 1
+  transition: 1s ease-in
+  position: relative
+  z-index: 100
+  &.close
+    opacity: 0
+
+#preloader
+  width: 100vw
+  height: 100vh
+
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+
+  background-color: $light
+
+  .prel-box
+    width: 50px
+    height: 50px
+    display: block
+    position: relative
+
+    overflow: hidden
+    background-color: #fff
+
+    animation: rotation 5s infinite linear
+    .prel-inbox
+      width: 100px
+      height: 100px
+      display: block
+      position: absolute
+
+      top: 50%
+      left: -50%
+
+      background-color: rgba(39, 173, 96, 1)
+      transform-origin: top center
+      animation: rotationWave 5s infinite
+      animation-timing-function: cubic-bezier(0.64, 0.74, 0.38, 0.26)
+
+@keyframes rotation
+  0%
+    transform: rotateZ(0deg)
+  100%
+    transform: rotateZ(360deg)
+
+@keyframes rotationWave
+  0%
+    transform: rotateZ(360deg)
+  100%
+    transform: rotateZ(0deg)
