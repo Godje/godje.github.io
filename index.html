@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daniel Mayovsky</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+      window.addEventListener("load", function(){
+        setTimeout(function(){
+          document.getElementById("pr").className += "close";
+          setTimeout(function(){
+            document.getElementById("pr").innerHTML = "";
+          }, 1000)
+        }, 1000)
+      })
+    </script>
+  </head>
+  <body>
+    <div id="pr">
+      <div id="preloader">
+        <div class="prel-box">
+          <div class="prel-inbox"></div>
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <div class="wrapper">
+      <div class="card">
+        <h1>Daniel Mayovsky</h1>
+        <p class="light">Junior Front-end developer</p>
+        <div class="row row--no-gutter">
+          <div class="col col--1-of-2">
+            <p class="main">Me on:</p>
+            <li><a href="#">Codepen.io</a></li>
+            <li><a href="#">VK.com</a></li>
+            <li><a href="#">YouTube</a></li>
+          </div>
+          <div class="col col--1-of-2">
+            <p class="main">Contact Me:</p>
+            <li><a href="mailto:daniel.mayovsky@gmail.com">daniel.mayovsky@gmail.com</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
