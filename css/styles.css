@@ -214,6 +214,8 @@ input[type="checkbox"], input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -537,18 +539,10 @@ table {
 #preloader {
   width: 100vw;
   height: 100vh;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -563,8 +557,7 @@ table {
   position: relative;
   overflow: hidden;
   background-color: #fff;
-  -webkit-animation: rotation 5s infinite linear;
-          animation: rotation 5s infinite linear;
+  animation: rotation 5s infinite linear;
 }
 
 #preloader .prel-box .prel-inbox {
@@ -574,57 +567,27 @@ table {
   position: absolute;
   top: 50%;
   left: -50%;
-  background-color: #27ad60;
-  -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
-          transform-origin: top center;
-  -webkit-animation: rotationWave 5s infinite;
-          animation: rotationWave 5s infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.64, 0.74, 0.38, 0.26);
-          animation-timing-function: cubic-bezier(0.64, 0.74, 0.38, 0.26);
-}
-
-@-webkit-keyframes rotation {
-  0% {
-    -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
-  }
-  100% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
-  }
+  background-color: black;
+  transform-origin: top center;
+  animation: rotationWave 5s infinite;
+  animation-timing-function: cubic-bezier(0.64, 0.74, 0.38, 0.26);
 }
 
 @keyframes rotation {
   0% {
-    -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
   100% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
-  }
-}
-
-@-webkit-keyframes rotationWave {
-  0% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
-  }
-  100% {
-    -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
+    transform: rotateZ(360deg);
   }
 }
 
 @keyframes rotationWave {
   0% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
   }
   100% {
-    -webkit-transform: rotateZ(0deg);
-            transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
   }
 }
 
@@ -671,22 +634,30 @@ body {
   z-index: -1;
 }
 
+.back-img {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/css/imp/D.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.5));
+}
+
 .wrapper {
   width: 95%;
   max-width: 630px;
   min-height: 100vh;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   position: relative;
 }
@@ -699,7 +670,7 @@ body {
   position: relative;
   background-color: rgba(255, 255, 255, 0.9);
   padding: 40px 20px;
-  color: #27ad60;
+  color: black;
   border-radius: 4px;
   transition: background-color 0.3s;
   box-shadow: 10px 0px 140px 0px rgba(0, 0, 0, 0.35);
@@ -736,7 +707,7 @@ body {
 }
 
 .wrapper .card li a {
-  color: #27ad60;
+  color: black;
   text-decoration: none;
   font-size: 18px;
   font-weight: 300;
@@ -751,13 +722,13 @@ body {
   bottom: 0;
   left: 0;
   height: 1px;
-  background-color: #27ad60;
+  background-color: black;
   width: 0%;
   transition: 0.35s ease-out;
 }
 
 .wrapper .card li a:hover {
-  color: rgba(39, 173, 96, 0.9);
+  color: black;
 }
 
 .wrapper .card li a:hover::after {

@@ -16,6 +16,8 @@
 *
   box-sizing: border-box
 
+$green: rgba(39, 173, 96, 1)
+
 body
   width: 100vw
   min-height: 100vh
@@ -37,6 +39,24 @@ body
 
   background-color: $light
   z-index: -1
+
+.back-img
+  width: 100vw
+  height: 100vh
+  overflow:hidden
+
+  display: block
+  position: fixed
+  top: 0
+  left: 0
+
+  background-image: url("/css/imp/D.png")
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: contain
+
+  -webkit-filter: drop-shadow(0px 0px 20px rgba(0,0,0,0.5))
+  filter: drop-shadow(0px 0px 20px rgba(0,0,0,0.5))
 
 .wrapper
   width: 95%
@@ -62,7 +82,7 @@ body
     //background-color: rgba(39, 173, 96, 1)
     background-color: rgba(255,255,255,0.9)
     padding: 40px 20px
-    color: rgba(39, 173, 96, 1)
+    color: black
     border-radius: 4px
 
     transition: background-color 0.3s
@@ -93,7 +113,7 @@ body
     li
       list-style: none
       a
-        color: rgba(39, 173, 96, 1)
+        color: black
         text-decoration: none
         font-size: 18px
         font-weight: 300
@@ -107,12 +127,12 @@ body
           bottom: 0
           left: 0
           height: 1px
-          background-color: rgba(39, 173, 96, 1)
+          background-color: black
           width: 0%
           transition: 0.35s ease-out
 
         &:hover
-          color: rgba(39, 173, 96, 0.9)
+          color: black
 
           &::after
             width: 100%

@@ -6,7 +6,7 @@ var opts = {
     spawnOpacity: 1,
 
     //must be RGBA. alpha stands for opacity, usually 1
-    color: "rgba(39, 173, 96, alpha)"
+    color: "rgba(0,0,0, alpha)"
   },
 
   canvasBody = document.getElementById("canvas"),
