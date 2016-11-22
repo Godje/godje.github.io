@@ -33,3 +33,7 @@ function anim() {
 }
 
 anim();
+window.addEventListener("resize", function(){
+  w = canvasBody.width = window.innerWidth;
+  h = canvasBody.height = window.innerHeight;
+})
