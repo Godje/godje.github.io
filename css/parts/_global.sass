@@ -87,7 +87,11 @@ body
 
     transition: background-color 0.3s
     box-shadow: 10px 0px 140px 0px rgba(0,0,0,0.35)
-
+    @media (max-width: 720px)
+      .col
+        margin-bottom: 25px
+        &:last-child
+          margin-bottom: 0
     h1,p
       margin: 0
       line-height: 100%

@@ -676,6 +676,15 @@ body {
   box-shadow: 10px 0px 140px 0px rgba(0, 0, 0, 0.35);
 }
 
+@media (max-width: 720px) {
+  .wrapper .card .col {
+    margin-bottom: 25px;
+  }
+  .wrapper .card .col:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .wrapper .card h1, .wrapper .card p {
   margin: 0;
   line-height: 100%;
