@@ -11,5 +11,5 @@ function Colors(){
       rgba: "rgba(231, 76, 60,1.0)",
     }
   };
-  return arguments.length==1?Colors[col].hex:Colors[col][arguments[1]];
+  return arguments.length==1?Colors[arguments[0]].hex:Colors[arguments[0]][arguments[1]];
 }
