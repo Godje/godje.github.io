@@ -31,6 +31,12 @@ const Home = {
 			]
 		}	
 	},
+	onbeforeremove: function(vnode){
+		vnode.dom.classList.add("fade-out")
+		return new Promise(function(resolve){
+			setTimeout( resolve, 400 )
+		})
+	},
 	view: function(vnode){
 		return m("div.home", [
 			m("div.row.first-row", [
