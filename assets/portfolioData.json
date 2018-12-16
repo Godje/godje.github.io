@@ -1,0 +1,40 @@
+{
+	"tutorials": [
+		{
+			"title": "Bouncing Particles aren't complicated",
+			"image": "./assets/images/bouncing_particles.png",
+			"href": "https://codepen.io/Godje/post/bouncing-particles-tutorial",
+			"type": "JavaScript | HTML5 Canvas"
+		},
+		{
+			"title": "Spinning Stars or Starfelds and mechanics behind",
+			"image": "./assets/images/spinning_stars.png",
+			"href": "https://codepen.io/Godje/post/spinning-stars-mechanics",
+			"type": "JavaScript | HTML5 Canvas"
+		},
+		{
+			"title": "It is easy to Sine wave",
+			"image": "./assets/images/sine_wave.png",
+			"href": "https://codepen.io/Godje/post/it-is-easy-to-sine-wave",
+			"type": "JavaScript | HTML5 Canvas"
+		},
+		{
+			"title": "Mess Creator Tutorial",
+			"image": "https://codepen.io/Godje/pen/PbRyVw/image/large.png",
+			"href": "https://codepen.io/Godje/post/mess-creator-story",
+			"type": "JavaScript | HTML5 Canvas"
+		}
+	],
+	"canvas-animations": [
+		"https://codepen.io/Godje/pen/RMPygz",
+		"https://codepen.io/Godje/pen/GOgGpj",
+		"https://codepen.io/Godje/pen/NaqRae",
+		"https://codepen.io/Godje/pen/qmodWK",
+		"https://codepen.io/Godje/pen/qmZPqO",
+		"https://codepen.io/Godje/pen/jBByqP",
+		"https://codepen.io/Godje/pen/VPBxPW",
+		"https://codepen.io/Godje/pen/apzxPE",
+		"https://codepen.io/Godje/pen/GrRRLP",
+		"https://codepen.io/Godje/pen/mOzpEY"
+	]
+}

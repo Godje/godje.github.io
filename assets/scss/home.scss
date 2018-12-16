@@ -8,6 +8,10 @@
 	max-width: 650px;
 	@include fontSize(24px);
 	overflow: auto;
+	animation: fadeIn 401ms ease-in-out 1;
+	animation-fill-mode: forwards;
+	text-transform: lowercase;
+	margin: auto auto !important;
 }
 .home.fade-out {
 	position: absolute;
@@ -115,13 +119,3 @@
 	}
 }
 
-@keyframes fadeOut{
-	from {
-		transform: translate(0, 0);
-		opacity: 1;
-	}
-	to {
-		transform: translate(0, -100%);
-		opacity: 0;
-	}
-}
