@@ -12,7 +12,7 @@ const Home = {
 				},
 				{
 					text: "Twitter",
-					href: "https://twitter.com/daniel.mayovskiy"
+					href: "https://twitter.com/DanielMayovsky"
 				},
 				{
 					text: "Github",
@@ -24,7 +24,7 @@ const Home = {
 				},
 				{
 					text: "YouTube",
-					href: "https://youtube.com/"
+					href: "https://www.youtube.com/channel/UCzKW1gIGnerPbsZD-C2QNpA"
 				},
 			]
 		}	
