@@ -119,10 +119,11 @@
 		}
 	}
 	.section-content.canvas-animations {
-		dispay: flex;
+		display: flex;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: flex-start;
+		flex-wrap: wrap;
 	}
 	.canvas-animations {
 		vertical-align: top;
@@ -135,7 +136,6 @@
 			position: relative;
 			align-items: center;
 			overflow: hidden;
-			flex: 1;
 			&:hover .overlay {
 				opacity: 1;
 				pointer-events: auto;
@@ -167,5 +167,21 @@
 			font-family: "Roboto Mono", monospace;
 			transition: opacity 120ms ease-in-out;
 		}
+	}
+}
+
+@media (max-width: $medium-break){
+	.portfolio .section-content.canvas-animations {
+		justify-content: center;
+		a {
+			width: calc(50% - 30px);
+		}
+	}
+}
+
+@media (max-width: $small-break){
+	.portfolio .section-content.canvas-animations a{
+		max-width: 300px;
+		width: calc(100% - 30px);
 	}
 }

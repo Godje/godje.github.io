@@ -1,4 +1,6 @@
 $accent: rgba(90,0,0,1);
+$medium-break: 780px;
+$small-break: 520px;
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
