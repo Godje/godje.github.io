@@ -10,10 +10,10 @@ const Home = {
 					text: "Codepen.io",
 					href: "https://codepen.io/Godje"
 				},
-				{
-					text: "Twitter",
-					href: "https://twitter.com/DanielMayovsky"
-				},
+				// {
+				// 	text: "Twitter",
+				// 	href: "https://twitter.com/DanielMayovsky"
+				// },
 				{
 					text: "Github",
 					href: "https://github.com/Godje"
@@ -26,6 +26,10 @@ const Home = {
 					text: "YouTube",
 					href: "https://www.youtube.com/channel/UCzKW1gIGnerPbsZD-C2QNpA"
 				},
+				{
+					text: "GitLab",
+					href: "https://gitlab.com/Godje"
+				}
 			]
 		}	
 	},
