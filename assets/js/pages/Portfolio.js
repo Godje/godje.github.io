@@ -56,7 +56,13 @@ const Portfolio = {
 			m("div.container", {
 				oncreate: vnode => that.model.containerDOM( vnode.dom )
 			}, [
-				m("h1", "My Work"),
+				m("div.title", [
+					m("h1", "My Work"),
+					m("a.link-back", {
+						href: "/",
+						oncreate: m.route.link
+					}, ""),
+				]),
 				m("div.section", [
 					m("div.section-title", [ m("h2", "Tutorials") ]),
 					m("div.section-content.tutorials", [

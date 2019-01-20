@@ -23,6 +23,9 @@
 }
 
 .portfolio {
+	.title {
+		position: relative;
+	}
 	h1 {
 		margin: 0;
 		font-size: 2.25em;
@@ -167,6 +170,41 @@
 			font-family: "Roboto Mono", monospace;
 			transition: opacity 120ms ease-in-out;
 		}
+	}
+
+	// Arrow back
+
+	.link-back {
+		display: inline-block;
+		float: right;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		text-decoration: none;
+		color: inherit;
+		&::before {
+			content: "< go back";
+			font-size: 1em;
+			font-family: 'Roboto', sans-serif;
+		}
+		&::after{
+			content: "";
+			display: inline-block;
+			width: 0%;
+			position: absolute;
+			height: 1px;
+			background-color: #111;
+			bottom: -3px;
+			left:0px;
+			transition: all 0.2s ease-in-out;
+		}
+		&:hover { &::after {
+				width: 100%;
+				background-color: $accent;
+			} &::before {
+				color: $accent;
+		}}
 	}
 }
 
