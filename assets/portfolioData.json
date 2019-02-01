@@ -26,21 +26,21 @@
 		}
 	],
 	"canvas-animations": [
-		"https://codepen.io/Godje/pen/RMPygz",
-		"https://codepen.io/Godje/pen/GOgGpj",
-		"https://codepen.io/Godje/pen/NaqRae",
-		"https://codepen.io/Godje/pen/qmodWK",
-		"https://codepen.io/Godje/pen/qmZPqO",
-		"https://codepen.io/Godje/pen/jBByqP",
-		"https://codepen.io/Godje/pen/VPBxPW",
-		"https://codepen.io/Godje/pen/apzxPE",
-		"https://codepen.io/Godje/pen/GrRRLP",
-		"https://codepen.io/Godje/pen/mOzpEY",
-		"https://codepen.io/Godje/pen/PbRyVw",
-		"https://codepen.io/Godje/pen/xRPMRM",
-		"https://codepen.io/Godje/pen/JbLwgJ",
-		"https://codepen.io/Godje/pen/dpxwrq",
-		"https://codepen.io/Godje/pen/WGYJGg",
-		"https://codepen.io/Godje/pen/zKazNq"
+		["Wavy Square Comb", "https://codepen.io/Godje/pen/RMPygz"],
+		["Galactical Battle", "https://codepen.io/Godje/pen/GOgGpj"],
+		["MKBHD-looking animation", "https://codepen.io/Godje/pen/NaqRae"],
+		["Hypnotic Flower", "https://codepen.io/Godje/pen/qmodWK"],
+		["Archimedian Spiral", "https://codepen.io/Godje/pen/qmZPqO"],
+		["Fancy Background Shapes", "https://codepen.io/Godje/pen/jBByqP"],
+		["Dark Spirit Fire", "https://codepen.io/Godje/pen/VPBxPW"],
+		["Weird Hexagons", "https://codepen.io/Godje/pen/apzxPE"],
+		["Grooving Particles", "https://codepen.io/Godje/pen/GrRRLP"],
+		["Leaping Grid", "https://codepen.io/Godje/pen/mOzpEY"],
+		["Color Chaos", "https://codepen.io/Godje/pen/PbRyVw"],
+		["Shoal of Pursuers", "https://codepen.io/Godje/pen/xRPMRM"],
+		["Bouncy Grid", "https://codepen.io/Godje/pen/JbLwgJ"],
+		["#codevember 02", "https://codepen.io/Godje/pen/dpxwrq"],
+		["Fire", "https://codepen.io/Godje/pen/WGYJGg"],
+		["Communicating Particles", "https://codepen.io/Godje/pen/zKazNq"]
 	]
 }

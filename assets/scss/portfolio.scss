@@ -134,18 +134,37 @@
 			width: 220px;
 			height: 130px;
 			margin: 20px 20px 0px 0px;
-			display: inline-flex;
-			justify-content: center;
+			padding: 20px 0px;
+			text-align: center;
 			position: relative;
 			align-items: center;
 			overflow: hidden;
+			color: rgba(24,24,24,1);
+			font-weight: bolder;
+			text-decoration: none;
 			&:hover .overlay {
 				opacity: 1;
 				pointer-events: auto;
 			}
 		}
+		span {
+			text-decoration: underline;
+			// This whole mess with decoration:underline is because of weird link-paragraph 
+			// inheritance. Although I would set p to have no underline, somehow the underline
+			// from href would stretch into p, with it's color and stuff. So I decided to 
+			// force it on a different part wth 'span'
+		}
+		p {
+			color: rgba(82,82,82,1);
+			font-weight: normal;
+			line-height: 100%;
+			font-size: 0.8em;
+		}
 		.entry-image {
 			width: 100%;
+			position: absolute;
+			top: 0; 
+			left: 0;
 			height: 100%;
 			background-size: cover;
 			background-position: center center;
@@ -154,6 +173,7 @@
 			position: absolute;
 			opacity: 0;
 			pointer-events: none;
+			top: 0;
 			left: 0;
 			background-color: rgba(0,0,0,0.7);
 			box-shadow: inset 0px 0px 0px 4px rgba(255,255,255,1);

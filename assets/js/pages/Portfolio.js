@@ -117,13 +117,17 @@ const Portfolio = {
 						!this.model.jsonLoaded() ? "Loading..." : (
 							this.data()["canvas-animations"].map(function(ca){
 								return m("a.entry", {
-									href: ca,
+									href: ca[1],
 									target: "_blank"
 								}, [
+									m("span", ca[0]),
+									m("p", "(image is loading or missing)"),
 									m("div.entry-image", {
-										style: "background-image: url("+ca+"/image/small.png)"
+										style: "background-image: url("+ca[1]+"/image/small.png)"
 									}),
-									m("div.overlay", "See Live")
+									m("div.overlay", {
+										title: ca[0],
+									}, "See Live")
 								])
 							})
 						)
