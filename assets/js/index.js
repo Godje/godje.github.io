@@ -5,10 +5,9 @@ const container = document.querySelector(".app");
 const Home = require("./pages/Home.js");
 const Portfolio = require("./pages/Portfolio.js")
 
-
 m.route(container, "/", {
 	"/": Home,
 	"/portfolio": Portfolio
-})
+});
 
 background( document.getElementById("c") );
