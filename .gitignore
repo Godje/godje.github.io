@@ -1,4 +1,4 @@
 core
 node_modules/
 MISC/
-.vimsession
+vimsession.vim
