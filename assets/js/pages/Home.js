@@ -52,7 +52,7 @@ const Home = {
 				]),
 				m("div.col", [
 					m("h1.name", [ m("span", "d"), "aniel ", m("span", "m"), "ayovskiy" ]),
-					m("p.job", "Frontend Web Developer"),
+					m("p.job", "Software Engineer"),
 					m("a[href='/portfolio'].mywork-link", { oncreate: m.route.link }, "see my work")
 				])
 			]),
