@@ -44,10 +44,9 @@ const Home = {
 			m("div.row.first-row", [
 				m("div.col", [
 					m("img", {
-						src: "./assets/images/avatar.jpg",
+						src: "https://avatars.githubusercontent.com/u/12803956",
 						width: 200,
 						height: 200,
-
 					}),
 				]),
 				m("div.col", [
