@@ -1,7 +1,7 @@
-#### my website repository
+# Daniel Maiovskyi website repository
 
-### little bit of info
+This is an implementation of a personal website design I made in October 2025.
 
-- MVC library - [Mithril.js](https://mithril.js.org/)
-- Canvas animation script - [`./assets/js/background.js`](https://github.com/Godje/godje.github.io/blob/master/assets/js/background.js)
-- First page SCSS grid - [Toast.scss](https://github.com/daneden/Toast)
+## stack
+- 11ty.js static site generator
+- JavaScript
