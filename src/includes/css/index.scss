@@ -1,8 +1,22 @@
-/** I decided to use an unnecessary amount of sass features for learning purposes */
+// I decided to use an unnecessary amount of Sass features for learning purposes
 @use "sass:map";
 @use "sass:math";
 
 @use 'colors' as colors;
+
+$weights: (
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900
+  );
+
+@mixin font-weight($type){
+  font-weight: map.get($weights, $type);
+}
 
 $mobile-cutoff: 640px;
 
@@ -32,6 +46,15 @@ body {
     color: map.get(colors.$list, $i);
   }
 }
+.text-color-inherit {
+  color: inherit;
+}
+
+@each $boldness, $weight in $weights {
+  .font-weight-#{$boldness} {
+    @include font-weight(#{$boldness});
+  }
+}
 
 .container {
   max-width: 780px;
@@ -49,3 +72,8 @@ h1 {
 h2 {
   font-size: fsize(32);
 }
+h6 {
+  font-size: fsize(18);
+}
+
+
