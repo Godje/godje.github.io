@@ -1,8 +1,20 @@
 const markdownItAnchor = require("markdown-it-anchor");
+const sass = require("sass");
 
 module.exports = function(eleventyConfig) {
+	/* Sass compile filter */
+	eleventyConfig.addFilter("sassCompile", function(input) {
+		let result = sass.compileString(input, {
+			loadPaths: [
+				".",
+				this.eleventy.directories.includes + "/css",
+			]
+		});
+		return result.css;
+	});
+
 	/* Text Overflow Ellipsis */
-	eleventyConfig.addFilter("ellipsisTrim", function(input, maxlen){
+	eleventyConfig.addFilter("ellipsisTrim", function(input, maxlen) {
 		const limit = maxlen || 40;
 		const str = input || "";
 		return (str.length > limit ? str.substring(0, limit) + "..." : str);
@@ -11,12 +23,12 @@ module.exports = function(eleventyConfig) {
 	/**
 	 * DRAFTS FEATURE START
 	 * copied directly from: https://www.11ty.dev/docs/quicktips/draft-posts/
-	 * */ 
+	 * */
 	// When `permalink` is false, the file is not written to disk
 	eleventyConfig.addGlobalData("eleventyComputed.permalink", function() {
 		return (data) => {
 			// Always skip during non-watch/serve builds
-			if(data.draft && !process.env.BUILD_DRAFTS) {
+			if (data.draft && !process.env.BUILD_DRAFTS) {
 				return false;
 			}
 
@@ -28,7 +40,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addGlobalData("eleventyComputed.eleventyExcludeFromCollections", function() {
 		return (data) => {
 			// Always exclude from non-watch/serve builds
-			if(data.draft && !process.env.BUILD_DRAFTS) {
+			if (data.draft && !process.env.BUILD_DRAFTS) {
 				return true;
 			}
 
@@ -36,9 +48,9 @@ module.exports = function(eleventyConfig) {
 		}
 	});
 
-	eleventyConfig.on("eleventy.before", ({runMode}) => {
+	eleventyConfig.on("eleventy.before", ({ runMode }) => {
 		// Set the environment variable
-		if(runMode === "serve" || runMode === "watch") {
+		if (runMode === "serve" || runMode === "watch") {
 			process.env.BUILD_DRAFTS = true;
 		}
 	});
@@ -53,7 +65,7 @@ module.exports = function(eleventyConfig) {
 				symbol: "#",
 				ariaHidden: false,
 			}),
-			level: [1,2,3],
+			level: [1, 2, 3],
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 	});

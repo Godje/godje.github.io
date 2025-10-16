@@ -1,0 +1,26 @@
+@use "sass:map";
+
+/* SCSS HEX export of coolors.co */
+$black: #0f0c0cff;
+$olive: #6e8067ff;
+$brown: #9f6d59ff;
+$green: #204546ff;
+$linen: #fcf4ebff;
+
+:root {
+  --color-1: #{$black};
+  --color-2: #{$olive};
+  --color-3: #{$brown};
+  --color-4: #{$green};
+  --color-5: #{$linen};
+  --white: #ffffff;
+  --black: var(--color-1);
+}
+
+$list: (
+  1: var(--color-1),
+  2: var(--color-2),
+  3: var(--color-3),
+  4: var(--color-4),
+  5: var(--color-5)
+);

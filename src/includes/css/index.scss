@@ -1,0 +1,51 @@
+/** I decided to use an unnecessary amount of sass features for learning purposes */
+@use "sass:map";
+@use "sass:math";
+
+@use 'colors' as colors;
+
+$mobile-cutoff: 640px;
+
+$base-font-size-n: 24;
+$base-font-size: #{$base-font-size-n}px;
+$smaller-font-size: 22px;
+
+// this exists because I have a design document in pixels, but I would still
+// like for font sizes to be relative to the "base size"
+@function fsize($design-pixels){
+  @return #{math.div($design-pixels, $base-font-size-n)}em;
+}
+
+body {
+  background-color: var(--color-5);
+  color: var(--color-4);
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: $base-font-size; /* this some crazy poop */
+
+  @media screen and (max-width: $mobile-cutoff){
+    font-size: $smaller-font-size;
+  }
+}
+
+@for $i from 1 through 5 {
+  .text-color-#{$i} {
+    color: map.get(colors.$list, $i);
+  }
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  color: colors.$green;
+
+  @media screen and (max-width: $mobile-cutoff){
+    width: 95%;
+  }
+}
+
+h1 {
+  font-size: fsize(52);
+}
+h2 {
+  font-size: fsize(32);
+}

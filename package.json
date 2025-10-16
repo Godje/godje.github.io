@@ -4,9 +4,9 @@
   "description": "Personal website of Daniel Maiovskyi, designed in October 2025.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "npx @11ty/eleventy --serve --formats=njk,html,md",
-    "build": "npx @11ty/eleventy --input=src --output=\"public\" --formats=njk,html,md"
+    "start": "nodemon --watch eleventy.config.js --exec npm run dev",
+    "dev": "npx @11ty/eleventy --serve --formats=njk,html,md,scss",
+    "build": "npx @11ty/eleventy --input=src --output=\"public\" --formats=njk,html,md,scss"
   },
   "keywords": [
     "personal-website"
@@ -15,6 +15,8 @@
   "license": "zlib",
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-	"markdown-it-anchor": "^9.2.0"
+    "markdown-it-anchor": "^9.2.0",
+    "nodemon": "^3.1.10",
+    "sass": "^1.93.2"
   }
 }
