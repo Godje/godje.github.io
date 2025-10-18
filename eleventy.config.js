@@ -2,6 +2,8 @@ const markdownItAnchor = require("markdown-it-anchor");
 const sass = require("sass");
 
 module.exports = function(eleventyConfig) {
+	eleventyConfig.addPassthroughCopy("src/includes/js/cityBackground.js");
+
 	/* Sass compile filter */
 	eleventyConfig.addFilter("sassCompile", function(input) {
 		let result = sass.compileString(input, {

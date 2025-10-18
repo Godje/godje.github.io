@@ -2,8 +2,15 @@
 <html lang="{{ metadata.language }}">
 	{% include "headtag.njk" %}
 	<body>
-		<main aria-hidden="false">
-			{{ content | safe }}
+		{% block pre %}
+		{% endblock %}
+		<main aria-hidden="false" style="overflow: auto;">
+			{% block content %}
+			{% endblock %}
+			<!-- {{ content | safe }} -->
 		</main>
+		{% block post %}
+		<span> background </span>
+		{% endblock %}
 	</body>
 </html>

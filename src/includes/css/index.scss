@@ -1,6 +1,7 @@
 // I decided to use an unnecessary amount of Sass features for learning purposes
 @use "sass:map";
 @use "sass:math";
+@use "sass:color";
 
 @use 'colors' as colors;
 
@@ -62,6 +63,9 @@ body {
   color: colors.$green;
   margin-top: fsize(88);
 
+  background-color: color.scale(colors.$linen, $alpha: -50%);
+  padding-bottom: 20px;
+
   @media screen and (max-width: $mobile-cutoff){
     width: 95%;
   }
@@ -114,5 +118,19 @@ body {
       content: "- ";
       user-select: inherit;
     }
+  }
+}
+
+#cityBackground {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  rect.building {
+    filter: drop-shadow(0px 4px 4px colors.$brown);
   }
 }
