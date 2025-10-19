@@ -1,17 +1,38 @@
 const markdownItAnchor = require("markdown-it-anchor");
 const sass = require("sass");
+const CleanCSS = require("clean-css");
+
+function benchTextSize(title, text) {
+	const encoder = new TextEncoder();
+	console.log(title + " " + encoder.encode(text).length);
+}
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/includes/js/cityBackground.js");
 
+	eleventyConfig.addFilter("cssmin", function(code) {
+		const result = new CleanCSS({}).minify(code).styles;
+		benchTextSize("cssmin", result);
+		return result;
+	});
+
 	/* Sass compile filter */
-	eleventyConfig.addFilter("sassCompile", function(input) {
+	eleventyConfig.addAsyncFilter("sassCompile", async function(input) {
 		let result = sass.compileString(input, {
 			loadPaths: [
 				".",
 				this.eleventy.directories.includes + "/css",
 			]
 		});
+
+		// minify on build
+		if (process.env.ELEVENTY_RUN_MODE == 'build') {
+			const minified = new CleanCSS({}).minify(result.css).styles;
+			benchTextSize("sass compilation minified", minified);
+			return minified;
+		}
+
+		benchTextSize("sass compilation", result.css);
 		return result.css;
 	});
 
