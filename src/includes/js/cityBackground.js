@@ -1,8 +1,8 @@
 (function() {
 	/** Configuration */
 	const config = {
-		smallBuildingMinCount: 10,
-		bigBuildingMinCount: 3,
+		smallBuildingMinCount: 5,
+		bigBuildingMinCount: 2,
 		cloudClustersMinCount: 5,
 		backgroundColor: '#fcf4eb',
 		buildingColor: '#9f6d59',
@@ -14,7 +14,7 @@
 		smallBuildingMinWidth: 0.3, // ratio to building's height
 		smallBuildingMaxWidth: 0.8,
 
-		smallBuildingMinOpacity: 0.6, // ratio to building's height
+		smallBuildingMinOpacity: 0.8, // ratio to building's height
 		smallBuildingMaxOpacity: 1,
 
 		// big buildings
