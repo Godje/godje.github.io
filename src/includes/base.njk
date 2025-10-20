@@ -4,25 +4,10 @@
 	<body>
 		{% block pre %}
 		{% endblock %}
-
-		{% if navigation == true %}
-		<nav>
-			<a href="/">Daniel Mayovskiy</a>
-			<ul>
-				<li><a href="/posts/">Posts</a></li>
-				<li><a href="/">Home</a></li>
-			</ul>
-		</nav>
-		{% endif %}
-
 		<main aria-hidden="false" style="overflow: auto;">
 			{# can be used as extends and as 11ty layout #}
-			{% if content %}
-				{{ content | safe }}
-			{% else %}
-				{% block content %}
-				{% endblock %}
-			{% endif %}
+			{% block content %}
+			{% endblock %}
 		</main>
 		{% block post %}
 		{% endblock %}

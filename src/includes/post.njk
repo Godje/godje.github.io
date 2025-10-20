@@ -1,14 +1,31 @@
 ---
-layout: base
-permalink: "posts/{{ title | slugify }}/index.html"
+permalink: "posts/{{ title if title else 'post' | slugify }}/index.html"
 ---
-<div class="container post">
+{% extends 'base.njk' %}
+
+{% block pre %}
+{# styles #}
+{% set postSass %}
+{% include 'css/post.scss' %}
+{% endset %}
+
+{% filter sassCompile %}
+{{ postSass }}
+{% endfilter %}
+
+
+{# navigation #}
+<nav>
+	<a href="/">Daniel Mayovskiy</a>
+	<ul>
+		<li><a href="/posts/">Posts</a></li>
+		<li><a href="/">Home</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
 	<h1>{{ title }}</h1>
-	<div class="categories">
-		{% for category in categories %}
-			<a href="#">{{ category }}</a>
-		{% endfor %}
-	</div>
-	<hr>
+	{{ date if date }}
 	{{ content | safe }}
-</div>
+{% endblock %}
