@@ -32,7 +32,7 @@ permalink: "posts/{{ title if title else 'post' | slugify }}/index.html"
 <h1>{{ title }}</h1>
 <div class="article-info">
 	<p><b>Date Published:</b> {{date if date}}</p>
-	<p><b>Topics:</b> <span>#design</span>, <span>#article</span> </p>
+	<p class="opacity-6"><b>Topics:</b> <span>#design</span>, <span>#article</span> </p>
 </div>
 {{ content | safe }}
 

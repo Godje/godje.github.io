@@ -3,57 +3,25 @@
 @use "sass:math";
 @use "sass:color";
 
-@use 'colors' as colors;
+@use 'vars';
+@use 'colors';
+@use 'mixins' as *;
 
 $mobile-cutoff: 640px;
 
-// this exists because I have a design document in pixels, but I would still
-// like for font sizes to be relative to the "base size"
-$base-font-size-n: 24;
-$base-font-size: #{$base-font-size-n}px;
-$smaller-font-size: 22px;
-@function fsize($design-pixels){
-  @return #{math.div($design-pixels, $base-font-size-n)}em;
-}
+@include text-color-atoms();
+@include font-weight-atoms();
 
-$weights: (
-  'light': 300,
-  'normal': 400,
-  'medium': 500,
-  'semibold': 600,
-  'bold': 700,
-  'extra-bold': 800,
-  'black': 900
-  );
-
-@mixin font-weight($type){
-  font-weight: map.get($weights, $type);
-}
-
-@for $i from 1 through 5 {
-  .text-color-#{$i} {
-    color: map.get(colors.$list, $i);
-  }
-}
-.text-color-inherit {
-  color: inherit;
-}
-
-@each $boldness, $weight in $weights {
-  .font-weight-#{$boldness} {
-    @include font-weight(#{$boldness});
-  }
-}
 
 body {
   background-color: var(--color-5);
   color: var(--color-4);
   font-family: "Roboto Condensed", sans-serif;
-  font-size: $base-font-size;
+  font-size: vars.$base-font-size;
   line-height: 1.2;
 
   @media screen and (max-width: $mobile-cutoff){
-    font-size: $smaller-font-size;
+    font-size: vars.$smaller-font-size;
   }
 }
 

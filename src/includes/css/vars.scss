@@ -1,0 +1,13 @@
+$base-font-size-n: 24;
+$base-font-size: #{$base-font-size-n}px;
+$smaller-font-size: 22px;
+
+$weights: (
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extra-bold': 800,
+  'black': 900
+  );

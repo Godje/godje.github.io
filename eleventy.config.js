@@ -1,4 +1,5 @@
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownIt = require("markdown-it");
 const sass = require("sass");
 const CleanCSS = require("clean-css");
 
@@ -8,6 +9,8 @@ function benchTextSize(title, text) {
 }
 
 module.exports = function(eleventyConfig) {
+	const md = markdownIt();
+
 	eleventyConfig.addPassthroughCopy("src/includes/js/cityBackground.js");
 
 	eleventyConfig.addFilter("cssmin", function(code) {
@@ -92,6 +95,39 @@ module.exports = function(eleventyConfig) {
 			slugify: eleventyConfig.getFilter("slugify")
 		});
 	});
+
+	// Plugin that adds class to p before a heading, to close off the section
+	md.use(function(md) {
+		md.core.ruler.after("block", "mark-before-heading", (state) => {
+			const tokens = state.tokens;
+			const len = tokens.length;
+
+			for (let i = 0; i < len - 1; i++) {
+				const t = tokens[i];
+				const next = tokens[i + 1];
+
+				// Skip early if not a paragraph_open
+				if (t.type !== "paragraph_open") continue;
+
+				// We only care if the *next block-level element* after the paragraph
+				// is an h2 heading_open.
+				// Because Markdown-It inserts paragraph_close right after inline.
+				// So the next visible block is usually 2 steps ahead (paragraph_close, then heading_open)
+				let j = i + 1;
+
+				// Skip inline/close tokens inside the paragraph
+				while (j < len && tokens[j].type !== "paragraph_close") j++;
+				if (j + 1 >= len) continue;
+
+				const nextBlock = tokens[j + 1];
+				if (nextBlock.type === "heading_open" /* && nextBlock.tag === "h2" */) {
+					t.attrJoin("class", "section-close");
+				}
+			}
+		});
+	});
+
+	eleventyConfig.setLibrary("md", md);
 
 	return {
 		dir: {
