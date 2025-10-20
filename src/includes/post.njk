@@ -3,20 +3,23 @@ permalink: "posts/{{ title if title else 'post' | slugify }}/index.html"
 ---
 {% extends 'base.njk' %}
 
+{% block metaextension %}
+<meta name="author" content="{{ metadata.author.name }}" />
+{% endblock %}
+
 {% block pre %}
+<style>
 {# styles #}
 {% set postSass %}
 {% include 'css/post.scss' %}
 {% endset %}
 
-{% filter sassCompile %}
-{{ postSass }}
-{% endfilter %}
-
+{{ postSass | sassCompile | safe }}
+</style>
 
 {# navigation #}
 <nav>
-	<a href="/">Daniel Mayovskiy</a>
+	<a class="text-weight-semibold" href="/">Daniel Mayovskiy</a>
 	<ul>
 		<li><a href="/posts/">Posts</a></li>
 		<li><a href="/">Home</a></li>
@@ -25,7 +28,12 @@ permalink: "posts/{{ title if title else 'post' | slugify }}/index.html"
 {% endblock %}
 
 {% block content %}
-	<h1>{{ title }}</h1>
-	{{ date if date }}
-	{{ content | safe }}
+
+<h1>{{ title }}</h1>
+<div class="article-info">
+	<p><b>Date Published:</b> {{date if date}}</p>
+	<p><b>Topics:</b> <span>#design</span>, <span>#article</span> </p>
+</div>
+{{ content | safe }}
+
 {% endblock %}

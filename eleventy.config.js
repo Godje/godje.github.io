@@ -17,7 +17,7 @@ module.exports = function(eleventyConfig) {
 	});
 
 	/* Sass compile filter */
-	eleventyConfig.addAsyncFilter("sassCompile", async function(input) {
+	eleventyConfig.addFilter("sassCompile", function(input) {
 		let result = sass.compileString(input, {
 			loadPaths: [
 				".",

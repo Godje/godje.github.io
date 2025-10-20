@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ metadata.language }}">
-	{% include "headtag.njk" %}
+	<head>
+		{% block metaextension %}
+		{% endblock %}
+		{% include "headtag.njk" %}
+	</head>
 	<body>
 		{% block pre %}
 		{% endblock %}
