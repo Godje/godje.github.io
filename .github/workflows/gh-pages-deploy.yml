@@ -1,0 +1,36 @@
+# Github Pages documentation is bad, so I had to follow a couple guides:
+# - https://www.geeksforgeeks.org/git/github-pages/
+# - https://docs.github.com/en/actions/tutorials/build-and-test-code/nodejs
+# - https://github.com/peaceiris/actions-gh-pages
+
+name: Github Pages CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.x']
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm install
+      - run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
