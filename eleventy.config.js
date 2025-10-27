@@ -11,6 +11,14 @@ function benchTextSize(title, text) {
 module.exports = function(eleventyConfig) {
 	const md = markdownIt();
 
+	eleventyConfig.addPassthroughCopy("**/*.jpg", {
+		mode: 'html-relative'
+	});
+	eleventyConfig.addPassthroughCopy("**/*.png", {
+		mode: 'html-relative'
+	});
+
+	// For home page
 	eleventyConfig.addPassthroughCopy("src/includes/js/cityBackground.js");
 
 	eleventyConfig.addFilter("cssmin", function(code) {
@@ -98,13 +106,28 @@ module.exports = function(eleventyConfig) {
 
 	// Plugin that adds class to p before a heading, to close off the section
 	md.use(function(md) {
+		md.core.ruler.after("inline", "add-link-colors", (state) => {
+			const tokens = state.tokens;
+			const len = tokens.length;
+			let count = 0;
+			for(let i = 0; i < len; i++){
+				const t = tokens[i];
+				if(t.type != 'inline') continue;
+
+				for(const token of t.children){
+					if(token.type == 'link_open' && token.tag == 'a'){
+						token.attrJoin("class", `text-color-4`);
+						count++;
+					}
+				}
+			}
+		});
 		md.core.ruler.after("block", "mark-before-heading", (state) => {
 			const tokens = state.tokens;
 			const len = tokens.length;
 
 			for (let i = 0; i < len - 1; i++) {
 				const t = tokens[i];
-				const next = tokens[i + 1];
 
 				// Skip early if not a paragraph_open
 				if (t.type !== "paragraph_open") continue;
