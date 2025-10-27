@@ -1,0 +1,49 @@
+@use "sass:map";
+@use "sass:math";
+// @use "sass:color";
+
+@use 'colors';
+@use 'vars';
+
+// this exists because I have a
+// design document in pixels, but I
+// would still like for font sizes to
+// be relative to the "base size"
+@function fsize($design-pixels){
+  @return #{math.div($design-pixels, vars.$base-font-size-n)}em;
+}
+
+@mixin font-size($design-pixels){
+  font-size: fsize($design-pixels);
+}
+
+@mixin font-weight($type){
+  font-weight: map.get(vars.$weights, $type);
+}
+
+@mixin font-weight-atoms(){
+  @each $boldness, $weight in vars.$weights {
+    .font-weight-#{$boldness} {
+      @include font-weight(#{$boldness});
+    }
+  }
+}
+
+@mixin opacity-atoms(){
+  @for $i from 0 through 9 {
+    .opacity-#{$i} {
+      opacity: #{math.div($i, 10)};
+    }
+  }
+}
+
+@mixin text-color-atoms(){
+  @for $i from 1 through 5 {
+    .text-color-#{$i} {
+      color: map.get(colors.$list, $i);
+    }
+  }
+  .text-color-inherit {
+    color: inherit;
+  }
+}

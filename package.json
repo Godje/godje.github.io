@@ -1,42 +1,23 @@
 {
   "name": "godje.github.io",
-  "version": "1.0.0",
-  "description": "Website of Daniel Mayovskiy",
+  "version": "1.0",
+  "description": "Personal website of Daniel Maiovskyi, designed in October 2025.",
   "main": "index.js",
   "scripts": {
-    "start": "gulp watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Godje/godje.github.io.git"
+    "start": "nodemon --watch eleventy.config.js --exec npm run dev",
+    "dev": "npx @11ty/eleventy --serve --formats=njk,html,md,scss",
+    "build": "npx @11ty/eleventy --input=src --output=\"public\" --formats=njk,html,md,scss"
   },
   "keywords": [
-    "website"
+    "personal-website"
   ],
-  "author": "Daniel Mayovskiy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Godje/godje.github.io/issues"
-  },
-  "homepage": "https://github.com/Godje/godje.github.io#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babelify": "^8.0.0",
-    "browser-sync": "^2.26.7",
-    "browserify": "^16.2.2",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-streamify": "^1.0.2",
-    "gulp-uglify": "^3.0.1",
-    "mithril": "^1.1.7",
-    "mithril-stream": "^1.1.0",
-    "vinyl-source-stream": "^2.0.0"
+  "author": "Daniel Maiovskyi",
+  "license": "zlib",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "clean-css": "^5.3.3",
+    "markdown-it-anchor": "^9.2.0",
+    "nodemon": "^3.1.10",
+    "sass": "^1.93.2"
   }
 }

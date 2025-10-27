@@ -1,0 +1,39 @@
+---
+permalink: "posts/{{ title if title else 'post' | slugify }}/index.html"
+---
+{% extends 'base.njk' %}
+
+{% block metaextension %}
+<meta name="author" content="{{ metadata.author.name }}" />
+{% endblock %}
+
+{% block pre %}
+<style>
+{# styles #}
+{% set postSass %}
+{% include 'css/post.scss' %}
+{% endset %}
+
+{{ postSass | sassCompile | safe }}
+</style>
+
+{# navigation #}
+<nav>
+	<a class="text-weight-semibold" href="/">Daniel Mayovskiy</a>
+	<ul>
+		<!-- <li><a href="/posts/">Posts</a></li> -->
+		<li><a href="/">Home</a></li>
+	</ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<div class="article-info">
+	<p><b>Date Published:</b> {{date if date}}</p>
+	<p class="opacity-6"><b>Topics:</b> <span>#design</span>, <span>#article</span> </p>
+</div>
+{{ content | safe }}
+
+{% endblock %}

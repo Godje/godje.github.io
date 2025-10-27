@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ metadata.language }}">
+	<head>
+		{% block metaextension %}
+		{% endblock %}
+		{% include "headtag.njk" %}
+	</head>
+	<body>
+		{% block pre %}
+		{% endblock %}
+		<main aria-hidden="false" style="overflow: auto;">
+			{# can be used as extends and as 11ty layout #}
+			{% block content %}
+			{% endblock %}
+		</main>
+		{% block post %}
+		{% endblock %}
+	</body>
+</html>

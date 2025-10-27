@@ -1,0 +1,104 @@
+// I decided to use an unnecessary amount of Sass features for learning purposes
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+
+@use 'vars';
+@use 'colors';
+@use 'mixins' as *;
+
+$mobile-cutoff: 640px;
+
+@include text-color-atoms();
+@include font-weight-atoms();
+
+
+body {
+  background-color: var(--color-5);
+  color: var(--color-4);
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: vars.$base-font-size;
+  line-height: 1.2;
+
+  @media screen and (max-width: $mobile-cutoff){
+    font-size: vars.$smaller-font-size;
+  }
+}
+
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  color: colors.$green;
+  margin-top: fsize(88);
+
+  background-color: color.scale(colors.$linen, $alpha: -50%);
+  padding-bottom: 20px;
+
+  @media screen and (max-width: $mobile-cutoff){
+    width: 95%;
+  }
+}
+
+
+.main-page {
+  h1 {
+    @include font-weight('bold');
+    line-height: 1.2;
+    font-size: fsize(52);
+  }
+
+  h2 {
+    @include font-weight('bold');
+    line-height: 1.4;
+    font-size: fsize(32);
+  }
+
+  h5 {
+    font-size: fsize(18);
+  }
+
+  .introduction {
+    margin-bottom: 12px;
+  }
+  .personal-description {
+    margin-top: fsize(32);
+    margin-bottom: fsize(24);
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: fsize(24) fsize(52);
+    .card {
+      border: 0px solid gray;
+      border-left-width: 4px;
+      padding-left: fsize(18);
+      padding-bottom: fsize(16);
+      height: fit-content;
+      h2 {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  ul li {
+    line-height: 1.4;
+    &:before {
+      content: "- ";
+      user-select: inherit;
+    }
+  }
+}
+
+#cityBackground {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+
+  rect.building {
+    filter: drop-shadow(0px 4px 4px colors.$brown);
+  }
+}
